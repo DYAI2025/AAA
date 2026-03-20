@@ -3,7 +3,7 @@
 ## Das Triple-A Framework für Multi-Agenten-Kollaboration
 
 **Version:** 1.0 · 20. März 2026  
-**Entwickelt von:** DYAI2025 · Bazodiac Team
+**Entwickelt von:** DYAI2025
 
 ---
 
@@ -39,7 +39,7 @@ Jeder Agent kann:
 
 **Decision Protocol:**
 ```
-1. Dokumente lesen (BRAND_VOICE.md + TRUE_NORTH.md)
+1. Dokumente lesen (TRUENORTH.md + BRANDVOICE.md + GOAL.md)
 2. Prüffrage: "Bringt das den Organismus näher an sein Atmen?"
 3. Drei-Schichten-Test (Kern / Myzel / Membran)
 4. Fünf-Gesetze-Check
@@ -56,6 +56,103 @@ Das **Nuggets Project Management System** automatisiert Board-Updates. Agents ar
 TODO → IN_PROGRESS → REVIEW → DONE
            ↓
        BLOCKED (mit Grund)
+```
+
+---
+
+## Setup (3 Dateien erstellen)
+
+Bevor du AAA verwendest, erstelle diese **drei Dokumente** in deinem Projekt:
+
+### 1. TRUENORTH.md
+
+**Zweck:** Die übergeordneten Prinzipien und Werte deines Projekts.
+
+**Inhalt:**
+- Was ist dein Projekt? Was ist es nicht?
+- Die 3-5 Kernprinzipien (wie "Die fünf Gesetze")
+- Die Prüffrage für Entscheidungen
+- Architektonische Schichten (Kern / Myzel / Membran)
+
+**Beispiel-Struktur:**
+```markdown
+# [Projektname] — True North
+
+## Was [Projekt] ist
+[Ein-Satz-Definition]
+
+## Was [Projekt] nicht ist
+[Abgrenzung]
+
+## Die [X] Gesetze
+1. [Gesetz 1]
+2. [Gesetz 2]
+...
+
+## Die Prüffrage
+"[Entscheidungsfrage]"
+```
+
+### 2. BRANDVOICE.md
+
+**Zweck:** Die Kommunikations- und Entscheidungsrichtlinien.
+
+**Inhalt:**
+- Voice Attribute (wie "Präzise", "Warm ohne Weich", "Souverän")
+- Tonalität pro Kontext (Onboarding, Daily, Error, etc.)
+- Terminologie (verwende X, nicht Y)
+- Stil-Regeln (Grammatik, Formatierung)
+
+**Beispiel-Struktur:**
+```markdown
+# [Projektname] — Brand Voice
+
+## Voice Attribute
+1. **[Attribut 1]**: [Beschreibung]
+2. **[Attribut 2]**: [Beschreibung]
+...
+
+## Tonalitäts-Spektrum
+| Kontext | Dial Up | Dial Down |
+|---------|---------|-----------|
+| Onboarding | Wärme | Präzision |
+| Error | Präzision | Wärme |
+
+## Terminologie
+| Verwende | Nicht verwenden |
+|----------|-----------------|
+| Signatur | Profil |
+| Muster | Eigenschaft |
+```
+
+### 3. GOAL.md
+
+**Zweck:** Das aktuelle Ziel / Sprint-Ziel.
+
+**Inhalt:**
+- Übergeordnetes Ziel (1-2 Sätze)
+- Erfolgskriterien (wann ist es erreicht?)
+- Constraints (was ist tabu?)
+- Timeline (optional)
+
+**Beispiel-Struktur:**
+```markdown
+# [Projektname] — Current Goal
+
+## Sprint-Ziel
+[Übergeordnetes Ziel in 1-2 Sätzen]
+
+## Erfolgskriterien
+- [ ] Kriterium 1
+- [ ] Kriterium 2
+- [ ] Kriterium 3
+
+## Constraints
+- [Tabu 1]
+- [Tabu 2]
+
+## Timeline
+[Start] → [Ende]
 ```
 
 ---
@@ -85,12 +182,13 @@ nuggets remember progress "TASK-XXX" "DONE:$(date -Iseconds):REVIEWER:none"
 
 **Datei:** `METACLAW-FRAMEWORK.md`
 
-Entscheidungs-Matrix basierend auf True North + Brand Voice Prinzipien.
+Entscheidungs-Matrix basierend auf deinen Prinzipien (TRUENORTH.md + BRANDVOICE.md).
 
 **Decision Matrix:**
-- **Schichten-Test:** Obsidian-Kern / Neurales Myzel / Biolumineszente Membran
-- **Fünf-Gesetze-Check:** Determinismus, Modulation, Kälte×Wärme, Prozess-Sprache, Z-Achse
-- **Brand-Voice-Check:** Präzise, Warm ohne Weich, Souverän, Prozess nicht Urteil
+- **Schichten-Test:** Welche Schicht wird bedient?
+- **Prinzipien-Check:** Verletzt es eines der Gesetze?
+- **Voice-Check:** Entspricht es der Brand Voice?
+- **Goal-Check:** Bringt es uns dem Ziel näher?
 
 **Learning Loop:**
 ```bash
@@ -117,98 +215,254 @@ HRR-basiertes (Holographic Reduced Representations) Memory-System für Tasks und
 
 ---
 
-## Board-Struktur
+## Workflow
 
-### Sprint-Tasks (Bazodiac Live Space-Weather)
-
-| Task | Beschreibung | Priority | Estimate |
-|------|-------------|----------|----------|
-| TASK-021 | DONKI CMEAnalysis + WSA-ENLIL anbinden | high | 3 |
-| TASK-022 | NOAA SWPC X-ray/Protonen/Kp anbinden | high | 2 |
-| TASK-023 | Solar Pressure Overlay: Ring-Modulation | high | 2 |
-| TASK-024 | GET /api/space-weather/extended Endpoint | high | 2 |
-| TASK-025 | Jieqi x Sky: Current Jieqi + Solar Activity | medium | 2 |
-| TASK-026 | Geometry x Disturbance: Signifikante Events | medium | 1 |
-| TASK-027 | Flare-to-Field Timeline Visualisierung | medium | 3 |
-| TASK-028 | Aurora Response Layer: OVATION bei Kp >= 5 | low | 2 |
-| TASK-029 | Quiz-Fixes: CloseButton entfernen | high | 2 |
-
----
-
-## Usage Examples
-
-### Beispiel 1: User gibt Ziel vor
-
-**User:** "Ich möchte die Quiz-UX verbessern"
-
-**ClawTeam Brainstorming → Tasks generieren → Agent arbeitet → Board aktualisiert**
-
-### Beispiel 2: MetaClaw Decision
-
-**Entscheidung:** "Du bist ein Paladin" vs "Deine Seele trägt den Paladin in sich"
-
-**MetaClaw Check:** Option B erfüllt Gesetz #4 (Prozess, nicht Urteil) ✅
-
----
-
-## Installation
+### Phase 1: Setup
 
 ```bash
-# 1. Nuggets installieren
+# 1. Drei Dokumente erstellen
+cat > TRUENORTH.md    # Prinzipien
+cat > BRANDVOICE.md   # Kommunikation
+cat > GOAL.md         # Aktuelles Ziel
+
+# 2. Nuggets installieren
 cd ~/Active/Claude-Workspace/nuggets
 npm install
 
-# 2. Ticket-Manager starten
+# 3. Ticket-Manager starten
 nohup npx tsx src/pm/ticket-manager.ts > /tmp/ticket-manager.log 2>&1 &
+```
+
+### Phase 2: ClawTeam Brainstorming
+
+```
+User gibt Ziel (aus GOAL.md)
+    ↓
+Agents lesen TRUENORTH.md + BRANDVOICE.md
+    ↓
+ClawTeam Brainstorming (Agents diskutieren)
+    ↓
+Tasks identifizieren
+    ↓
+Jeder Task → SOFORT im Board anlegen
+```
+
+### Phase 3: Task-Abarbeitung
+
+```bash
+# 1. Task holen
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts next
+
+# 2. Task starten
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts start TASK-XXX
+
+# 3. Decision treffen (MetaClaw)
+# - Dokumente lesen
+# - Prüffrage stellen
+# - Decision dokumentieren
+nuggets remember metaclaw-decisions "TASK-XXX" "Beschreibung | Schicht | Begründung"
+
+# 4. Arbeiten...
+
+# 5. Task fertigstellen
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts done TASK-XXX
+
+# 6. Pattern lernen
+nuggets remember metaclaw-patterns "key" "Erfolgreiches Muster"
 ```
 
 ---
 
-## Commands
+## Decision Template
+
+**Vor JEDER Entscheidung ausfüllen:**
+
+```markdown
+## Decision: [Name]
+
+### Dokumente gelesen
+- [ ] TRUENORTH.md
+- [ ] BRANDVOICE.md
+- [ ] GOAL.md
+
+### Prüffrage
+"Bringt das den Organismus näher an sein Atmen — oder entfernt es ihn davon?"
+Antwort: [Ja / Nein / Unklar]
+
+### Schichten-Test
+- [ ] Kern: Dient / Berührt / Neutral
+- [ ] Myzel: Dient / Berührt / Neutral
+- [ ] Membran: Dient / Berührt / Neutral
+
+### Prinzipien-Check
+- [ ] Gesetz 1: ✅ / ❌
+- [ ] Gesetz 2: ✅ / ❌
+- [ ] Gesetz 3: ✅ / ❌
+- [ ] Gesetz 4: ✅ / ❌
+- [ ] Gesetz 5: ✅ / ❌
+
+### Voice-Check
+- [ ] Attribut 1: ✅ / ❌
+- [ ] Attribut 2: ✅ / ❌
+- [ ] Attribut 3: ✅ / ❌
+
+### Goal-Check
+- [ ] Bringt uns näher an GOAL.md Ziel: ✅ / ❌
+
+### Entscheidung
+✅ BAUEN / ❌ NICHT BAUEN / ⚠️ ANPASSEN
+
+### Begründung
+[Kurze Erklärung]
+```
+
+---
+
+## Commands Übersicht
+
+### Board-Management
 
 ```bash
 # Board anzeigen
 npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts show
 
+# Nächste Task holen
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts next
+
 # Task starten
 npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts start TASK-XXX
 
-# Task fertigstellen
+# Task fertigstellen (ohne Review)
 npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts done TASK-XXX
 
-# Nuggets CLI
-nuggets remember <nugget> <key> <value>
-nuggets recall "<query>"
-nuggets facts <nugget>
+# Task fertigstellen (mit Review)
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts done TASK-XXX @reviewer
+
+# Task blockieren
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts block TASK-XXX "Waiting for X"
+
+# Neue Task hinzufügen
+npx tsx ~/Active/Claude-Workspace/nuggets/src/pm/board-cli.ts add TASK-XXX "Beschreibung | priority:high | estimate:2"
 ```
 
----
+### Nuggets CLI
 
-## Philosophy
+```bash
+# Fact speichern
+nuggets remember <nugget> <key> <value>
 
-**Traditional PM:** Top-down (PM erstellt Tasks → Team arbeitet)  
-**AAA:** Bottom-up (User gibt Ziele → Agents generieren Tasks)
+# Fact abrufen
+nuggets recall "<query>" [--nugget <name>]
 
-**Vorteile:**
-- Schnellere Iteration (kein PM-Bottleneck)
-- Bessere Tasks (Agents kennen Codebase)
-- Höhere Ownership (Agents entscheiden selbst)
-- Kontinuierliches Lernen (MetaClaw speichert Patterns)
+# Facts auflisten
+nuggets facts <nugget>
+
+# Alle Nuggets auflisten
+nuggets list
+```
 
 ---
 
 ## Best Practices
 
-✅ **DO:** Tasks SOFORT anlegen, klar beschreiben, dokumentieren, lernen  
-❌ **DON'T:** Mündlich vereinbaren, vage sein, gegen True North entscheiden
+### DOs
+
+✅ **Drei Dokumente VOR Start erstellen** — Ohne Prinzipien keine konsistenten Entscheidungen  
+✅ **Jeden Task SOFORT nach Brainstorming anlegen** — Nicht "später machen"  
+✅ **Task-ID eindeutig** — TASK-001, TASK-002, ... fortlaufend  
+✅ **Beschreibung klar** — Was + warum (nicht wie)  
+✅ **Priority setzen** — high/medium/low  
+✅ **Estimate setzen** — 1-5 Tage  
+✅ **Nach Commit updaten** — DONE oder REVIEW  
+✅ **Entscheidungen dokumentieren** — metaclaw-decisions  
+✅ **Lernen aus Outcomes** — metaclaw-patterns / antipatterns  
+
+### DON'Ts
+
+❌ **Dokumente ignorieren** — Immer TRUENORTH.md + BRANDVOICE.md lesen  
+❌ **Tasks mündlich vereinbaren** — Immer im Board  
+❌ **Task-Beschreibungen vage** — "Fix bug" → "CloseButton aus Component X entfernen"  
+❌ **Priority vergessen** — Ohne Priority kann nicht priorisiert werden  
+❌ **Estimate zu hoch** — >5 Tage = Task aufteilen  
+❌ **Entscheidungen nicht dokumentieren** — Lernen geht verloren  
+❌ **Gegen eigene Prinzipien entscheiden** — Prüffrage immer stellen  
+
+---
+
+## Metriken
+
+### Sprint-Velocity
+
+```bash
+# Tasks pro Woche zählen
+nuggets facts board | grep "DONE" | wc -w
+```
+
+### Decision-Quality
+
+```bash
+# Positive Patterns vs Anti-Patterns
+nuggets facts metaclaw-patterns | wc -l
+nuggets facts metaclaw-antipatterns | wc -l
+# Ziel: Mehr Patterns als Anti-Patterns
+```
+
+### Board-Health
+
+```
+Ideales Board:
+- TODO: 5-15 Tasks (nicht überladen, nicht leer)
+- IN_PROGRESS: 1-3 Tasks (Fokus)
+- REVIEW: 0-2 Tasks (schnelles Feedback)
+- DONE: Wächst kontinuierlich
+- BLOCKED: 0 Tasks (oder schnell auflösen)
+```
+
+---
+
+## Troubleshooting
+
+### Ticket-Manager läuft nicht
+
+```bash
+# Prozess prüfen
+ps aux | grep ticket-manager
+
+# Neu starten
+cd ~/Active/Claude-Workspace/nuggets
+npx tsx src/pm/ticket-manager.ts &
+```
+
+### Board zeigt alte Tasks
+
+```bash
+# Board manuell aktualisieren
+nuggets remember board "TODO" "TASK-001, TASK-002, ..."
+```
+
+### Nuggets CLI nicht gefunden
+
+```bash
+# Nuggets installieren
+pip install nuggets
+
+# Oder lokale Version verwenden
+cd ~/Active/Claude-Workspace/nuggets
+npm install
+```
+
+---
+
+## License
+
+MIT License — DYAI2025
 
 ---
 
 ## Links
 
-- **Bazodiac:** https://bazodiac.space
-- **Sky:** https://sky.bazodiac.space
-- **Nuggets:** https://github.com/nuggets-memory/nuggets
+- **Nuggets Memory:** https://github.com/nuggets-memory/nuggets
+- **Bazodiac (Referenz-Implementierung):** https://bazodiac.space
 
 ---
 
